@@ -1,0 +1,18 @@
+.Sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(40, 40, 40);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.sideNavButtons {
+    font-size: 20px;
+    transition: ease 0.3s;
+    background-color: transparent;
+}

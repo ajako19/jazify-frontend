@@ -1,4 +1,9 @@
 * {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  background-color: #363636;
+}
+
+::placeholder {
+  color: white;
 }

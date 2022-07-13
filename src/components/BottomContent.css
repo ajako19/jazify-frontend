@@ -1,0 +1,63 @@
+.bottomContent {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    backdrop-filter: blur(6px);
+    background-color: transparent;
+    
+}
+
+.musicPlayer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    backdrop-filter: blur(6px);
+    background-color: transparent;
+}
+
+.musicPlayerButtons {
+    font-size: 50px;
+    background-color: transparent;
+}
+
+.timeBarWrap {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+
+.timeBar {
+    width: 80%;
+    background-color: #c1c1c1;
+    line-height: 3px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    backdrop-filter: blur(6px);
+    background-color: transparent;
+}
+
+.navButtonA {
+    font-size: 30px;
+    transition: ease 0.3s;
+    background-color: transparent;
+}
+
+.navButtonA:hover {
+    font-size: 100px;
+    color: purple;
+}
+
+.navButton {
+    background-color: transparent;
+}

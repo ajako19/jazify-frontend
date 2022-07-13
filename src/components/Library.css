@@ -1,0 +1,74 @@
+.Library {
+    height: 70vw;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputBar {
+    background-color: #c1c1c1;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    width: 330px;
+    padding: 5px;
+    margin-top: 17px;
+}
+
+.header {
+    margin-top: 30px;
+    margin-left: 22px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.mainPageContent {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.pageContentImage {
+    width: 175px;
+    padding: 10px;
+    border-radius: 10%;
+    margin-top: 10px;
+}
+
+.songTitle {
+    font-size: 15px;
+    margin-left: 10px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 100px;
+}
+
+.artistName {
+    margin-left: 10px;
+    font-size: 12.5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+@media only screen and (min-width: 595px)  {
+    .mainPageContent {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+
+    }
+
+    .pageContentItem {
+        flex: 0 0 auto;
+    }
+
+    
+}
+
+/* ask taz about the scroll left side cutting off */
+/* overlapping components (music controller and sidebar) */
+
+
