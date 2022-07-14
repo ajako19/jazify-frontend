@@ -4,7 +4,8 @@ import "./BottomContent.css"
 
 export default function BottomContent () {
     return (
-        <div className="bottomContent">
+        
+        <footer className="bottomContent">
         <div className="musicPlayer">
             <BiRewind className="musicPlayerButtons"/>
             <BiPause className="musicPlayerButtons"/>
@@ -24,6 +25,6 @@ export default function BottomContent () {
             <BiLibrary className="navButton"/>
             </a>
         </div>
-    </div>
+    </footer>
     )
 }

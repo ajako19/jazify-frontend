@@ -52,8 +52,8 @@ export default function Library () {
                     <p className="songTitle">Sgt Pepper's Lonely Hearts Club Band</p>
                     <p className="artistName">The Beatles</p>
                 </div>
-                <BottomContent/>
             </div>
+                <BottomContent/>
         </div>
     )
 }

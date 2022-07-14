@@ -16,3 +16,16 @@
     transition: ease 0.3s;
     background-color: transparent;
 }
+
+.BottomNav {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(60, 60, 60);
+    line-height: 100px;
+}
+
+body {
+font-family: 'Poppins', sans-serif;
+
+}
