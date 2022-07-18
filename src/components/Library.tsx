@@ -6,7 +6,7 @@ import Sidenav from "./Sidenav"
 export default function Library () {
     return (
         <div className="Libary">
-            <Sidenav/>
+            <div className="container">
             <div className="header">
                 <p className="welcomeHome">Library</p>
                 <input className="inputBar" placeholder="Search Jazify..."/>
@@ -53,7 +53,8 @@ export default function Library () {
                     <p className="artistName">The Beatles</p>
                 </div>
             </div>
-                <BottomContent/>
+            </div>
+
         </div>
     )
 }

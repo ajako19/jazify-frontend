@@ -1,6 +1,7 @@
 .Library {
-    height: 70vw;
-    width: 100%;
+    height: 70vh;
+    width: 100vw;
+    position: relative;
     display: flex;
     flex-direction: column;
 }
@@ -27,9 +28,11 @@
 .mainPageContent {
     margin-top: 20px;
     width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    overflow-y: auto;
 }
 
 .pageContentImage {
@@ -63,6 +66,10 @@
 
     .pageContentItem {
         flex: 0 0 auto;
+    }
+
+    .container {
+        padding-left: 250px;
     }
 
     

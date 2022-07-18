@@ -1,18 +1,24 @@
+
+
+
+
 .Sidenav {
-    height: 100%;
-    width: 160px;
     position: fixed;
-    z-index: 1;
+    height: 100vh;
+    width: 13rem;
+    padding-left: 20px;
+    padding-top: 20px;
     top: 0;
     left: 0;
     background-color: rgb(40, 40, 40);
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    z-index: 100;
 }
 
 .sideNavButtons {
     font-size: 20px;
+    text-decoration: none;
     transition: ease 0.3s;
     background-color: transparent;
 }
@@ -27,5 +33,12 @@
 
 body {
 font-family: 'Poppins', sans-serif;
+}
 
+@media only screen and (max-width: 595px)  {
+
+    .sn_container {
+        display: none;
+    }
+    
 }

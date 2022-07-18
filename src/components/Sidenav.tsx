@@ -2,7 +2,7 @@ import "./Sidenav.css"
 
 export default function () {
     return (
-        <div>
+        <div className="sn_container">
 
         <div className="Sidenav">
             <a className="sideNavButtons" href="#">Home</a>

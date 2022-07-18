@@ -1,6 +1,6 @@
-import "./Library.css"
+import "./Home1.css"
 
-export default function Library () {
+export default function Home () {
     return (
         <div>
             <p>Hi</p>
