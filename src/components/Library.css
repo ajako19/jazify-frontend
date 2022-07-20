@@ -6,14 +6,15 @@
     flex-direction: column;
 }
 
-.inputBar {
+input {
     background-color: #c1c1c1;
     border: 1px solid black;
     border-radius: 5px;
     outline: none;
     width: 330px;
+    margin-bottom: 25px;
     padding: 5px;
-    margin-top: 17px;
+    margin-left: 20px;
 }
 
 .header {
@@ -34,6 +35,7 @@
     flex-wrap: wrap;
     overflow-y: auto;
 }
+
 
 .pageContentImage {
     width: 175px;
@@ -70,6 +72,16 @@
 
     .container {
         padding-left: 250px;
+    }
+
+    .searchResults {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    input {
+        margin-left: 250px;
     }
 
     

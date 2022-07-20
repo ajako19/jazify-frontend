@@ -1,0 +1,36 @@
+.SearchResult {
+    margin-top: 20px;
+    margin-left: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.albumImg {
+    cursor: pointer;
+}
+
+.title {
+    cursor: pointer;
+}
+
+i {
+    transition: 0.25s;
+}
+
+i:hover {
+    color: red;
+}
+
+img {
+    height: 60px;
+    width: 60px;
+}
+
+@media only screen and (min-width: 595px)  {
+
+    .SearchResult {
+        margin-left: 250px;
+    }
+    
+}

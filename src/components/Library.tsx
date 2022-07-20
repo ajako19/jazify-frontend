@@ -1,60 +1,101 @@
-import BottomContent from "./BottomContent"
+import React from "react";
+import { useState, useEffect } from "react";
+import SpotifyWebApi from "spotify-web-api-node";
+import { Track } from "../models/Track";
+import SearchResult from "./SearchResult";
 import "./Library.css"
-import Sidenav from "./Sidenav"
-// import hotlinebling from "../img/hotlinebling.png"
 
-export default function Library () {
-    return (
-        <div className="Libary">
-            <div className="container">
-            <div className="header">
-                <p className="welcomeHome">Library</p>
-                <input className="inputBar" placeholder="Search Jazify..."/>
-            </div>
-            <div className="mainPageContent">
-                <div className="pageContentItem">
-                    <img className="pageContentImage" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Drake_-_Hotline_Bling.png"></img>
-                    <p className="songTitle">Hotline Bling</p>
-                    <p className="artistName">Drake</p>
-                </div>
-                <div className="pageContentItem">
-                    <img className="pageContentImage" src="https://m.media-amazon.com/images/I/7164ajA6eJS._SL1200_.jpg"></img>
-                    <p className="songTitle">College Dropout</p>
-                    <p className="artistName">Kanye West</p>
-                </div>
-                <div className="pageContentItem">
-                    <img className="pageContentImage" src="https://m.media-amazon.com/images/I/A1gZc70vUIL._SL1500_.jpg"></img>
-                    <p className="songTitle">InnerSpeaker</p>
-                    <p className="artistName">Tame Impala</p>
-                </div>
-                <div className="pageContentItem">
-                    <img className="pageContentImage" src="https://m.media-amazon.com/images/I/91r5cRb6ntL._SX425_.jpg"></img>
-                    <p className="songTitle">Person Pitch</p>
-                    <p className="artistName">Panda Bear</p>
-                </div>
-                <div className="pageContentItem">
-                    <img className="pageContentImage" src="https://i.discogs.com/IbpNW0hqwHUPAcuwDyxIOhG6xnedktJ0VgVEq96h_OY/rs:fit/g:sm/q:90/h:496/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0MDEz/ODAtMTI4NzQyOTky/Ny5qcGVn.jpeg"></img>
-                    <p className="songTitle">Hatful Of Hollow</p>
-                    <p className="artistName">The Smiths</p>
-                </div>
-                <div className="pageContentItem">
-                    <img className="pageContentImage" src="http://s3.amazonaws.com/quietus_production/images/articles/12879/Talking_Heads-Speaking_In_Tongues__1983_-Frontal_1374490245.jpg"></img>
-                    <p className="songTitle">Speaking In Tongues</p>
-                    <p className="artistName">Talkig Heads</p>
-                </div>
-                <div className="pageContentItem">
-                    <img className="pageContentImage" src="https://m.media-amazon.com/images/I/61yver5nJSL._SL1200_.jpg"></img>
-                    <p className="songTitle">Because The Internet</p>
-                    <p className="artistName">Childish Gambino</p>
-                </div>
-                <div className="pageContentItem">
-                    <img className="pageContentImage" src="https://images.theconversation.com/files/168828/original/file-20170510-21596-13cqs18.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"></img>
-                    <p className="songTitle">Sgt Pepper's Lonely Hearts Club Band</p>
-                    <p className="artistName">The Beatles</p>
-                </div>
-            </div>
-            </div>
+const spotifyApi = new SpotifyWebApi({
+  clientId: "38dab61be602496183a8e42aef0aa8d7",
+});
 
-        </div>
-    )
+interface Props {
+    token: string;
 }
+
+export default function Dashboard({token}:Props) {
+  const accessToken = token;
+  const [search, setSearch] = useState("");
+  const [searchResults, setSearchResults] = useState<Track[] | undefined>([]);
+  const [playingTrack, setPlayingTrack] = useState<Track>()
+  console.log(searchResults);
+
+  function chooseTrack(track:Track) {
+    setPlayingTrack(track)
+    setSearch("")
+  }
+
+  useEffect(() => {
+    if (!accessToken) return;
+    // if the token exists, end on the return right there,
+    // if else not, run line the next line
+    spotifyApi.setAccessToken(accessToken);
+    // sets the spotify api access token
+  }, [accessToken]);
+
+  useEffect(() => {
+    // if theres no search, set the results to nothing
+    if (!search) return setSearchResults([]);
+    if (!accessToken) return;
+    // searches tracks based on criteria
+    spotifyApi.searchTracks(search).then((res) => {
+      console.log(res)
+
+      // checks if tracks exist if not, empty array
+      setSearchResults(
+        res.body.tracks?.items.map((track) => {
+          const smallestAlbumImg = track.album.images.reduce(
+            (smallest, image) => {
+              if (image.height! < smallest.height!) return image;
+              // if image is less than the smallest image, return the new smallest img
+              return smallest;
+            },
+            track.album.images[0]
+          );
+
+          // this loop compares the image height to the smallest height,
+          // assuming track.album.images is the default value
+          // if i really care, search up reduce
+
+          return {
+            artist: track.artists[0].name,
+            // get the first artist from the track.artist
+            title: track.name,
+            uri: track.uri,
+            albumUrl: smallestAlbumImg.url,
+            // console logging these things set
+            // as search results
+          };
+        })
+      );
+      // map thru each of the tracks
+      // gives back all of the tracks we want
+      // 38:58 in the tutorial for a good example on the
+      // api interfaces
+      
+    });
+    // whole cancelling doesn't let queries overlap
+  }, [search, accessToken]);
+
+  // whenever the search of accessToken changes, run this
+
+  return (
+    <div style={{ height: "100vh" }}>
+      <input
+        type="search"
+        placeholder="Search Songs/Artists"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      ></input>
+
+      <div className="searchResults">
+        {searchResults?.map((track) => (
+          <SearchResult track={track} key={track.uri} chooseTrack={chooseTrack} />
+        ))}
+      </div>
+      {/* <MusicPlayer accessToken={accessToken} trackUri={playingTrack?.uri} /> */}
+    </div>
+  );
+}
+// ask max for help getting the image url thing into the interfaces
+// and annotate all of this :)
