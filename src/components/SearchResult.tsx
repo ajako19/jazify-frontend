@@ -1,3 +1,4 @@
+import  Axios  from 'axios';
 import React from 'react'
 import { Track } from '../models/Track'
 import "./SearchResults.css"
@@ -7,7 +8,20 @@ interface Props {
   chooseTrack: (track:Track) => void;
 }
 
+
 export default function SearchResult({track, chooseTrack}: Props)  { 
+  
+  function handleLikedSongs () {
+    Axios.post("http://localhost:3001/likedSong", {
+      userID: 1,
+      
+      newSong: {
+        ...track,
+        // goes over the object of track and pulls the keys into
+        // new song
+      }
+    })
+  }
   
   function handlePlay () {
     chooseTrack(track)
@@ -25,7 +39,7 @@ export default function SearchResult({track, chooseTrack}: Props)  {
       <div>{track.artist}</div>
     </div>
     <div>
-      <i className="fa-solid fa-heart"></i>
+      <i onClick={handleLikedSongs} className="fa-solid fa-heart"></i>
     </div>
     </div>
   )
