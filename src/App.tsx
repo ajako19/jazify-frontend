@@ -4,6 +4,8 @@ import './App.css';
 import Dashboard from './components/Library';
 import Library from './components/Library';
 import Sidenav from './components/Sidenav';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link, NavLink } from "react-router-dom"
+import LikedSongs from './components/LikedSongs';
 
 function App() {
   const CLIENT_ID = "38dab61be602496183a8e42aef0aa8d7"
@@ -59,18 +61,27 @@ function App() {
   
   return (
     <div className="App">
+      {token ? <Router>
+    <Routes>
+    
+    <Route path='/home' element={<Library token={token}/>}></Route>
+    <Route path='/library' element={<LikedSongs/>}></Route>
+    <Route path='/likedsongs' element={<LikedSongs/>}></Route>
+  </Routes>
+    <Sidenav/>
+  </Router> : null}
+    
+
       {!token ?
-      <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
+      <a className='logintospotify' href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
       to Spotify</a>
       : <button className='logoutButton' onClick={logout}>Logout</button>}
       {token ? <form onSubmit={searchArtists}>
 
       </form> : <h1></h1>}
-      <Sidenav/>
-      <Library token={token}/>
-
     </div>
   );
 }
 
 export default App;
+

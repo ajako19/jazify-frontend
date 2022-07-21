@@ -3,7 +3,6 @@
   color: #ffffff;
 }
 
-
 body {
   display: flex;
   flex-wrap: wrap;
@@ -15,9 +14,10 @@ html {
 }
 
 .logoutButton {
+  margin-left: 500px;
   position: absolute;
-  margin-top: 30px;
-  margin-left: 250px;
+  bottom: 10px;
+  right: 10px;
 }
 
 

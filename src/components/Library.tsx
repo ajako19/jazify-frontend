@@ -4,6 +4,8 @@ import SpotifyWebApi from "spotify-web-api-node";
 import { Track } from "../models/Track";
 import SearchResult from "./SearchResult";
 import "./Library.css"
+import { User } from "../models/User";
+import axios from "axios";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "38dab61be602496183a8e42aef0aa8d7",
@@ -18,6 +20,7 @@ export default function Dashboard({token}:Props) {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState<Track[] | undefined>([]);
   const [playingTrack, setPlayingTrack] = useState<Track>()
+  const [userData, setUserData] = useState<User>()
   console.log(searchResults);
 
   function chooseTrack(track:Track) {
@@ -74,10 +77,23 @@ export default function Dashboard({token}:Props) {
       // api interfaces
       
     });
+
+    // spotifyApi.getUser().then((res) => {
+
+    // how do i go about getting a dynamic username without a user id?
+
+
+    // })
     // whole cancelling doesn't let queries overlap
+
+    // axios.get("api.spotify.com/v1/me", {
+      
+    // })
+
   }, [search, accessToken]);
 
   // whenever the search of accessToken changes, run this
+
 
   return (
     <div style={{ height: "100vh" }}>
