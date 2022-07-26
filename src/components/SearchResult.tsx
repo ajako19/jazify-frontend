@@ -35,11 +35,13 @@ export default function SearchResult({track, chooseTrack}: Props)  {
     <div className='SearchResult'>
     <div className='pageContentItem'>
       <img className='albumImg' src={track.albumUrl}/>
+      <div className='songinfo'>
       <div className='title'>{track.title}</div>
-      <div>{track.artist}</div>
-    </div>
+      <div className='artist'>{track.artist}</div>
     <div>
       <i onClick={handleLikedSongs} className="fa-solid fa-heart"></i>
+    </div>
+      </div>
     </div>
     </div>
   )

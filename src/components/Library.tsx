@@ -6,6 +6,7 @@ import SearchResult from "./SearchResult";
 import "./Library.css"
 import { User } from "../models/User";
 import axios from "axios";
+import {BsXLg, BsSearch} from 'react-icons/bs' 
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "38dab61be602496183a8e42aef0aa8d7",
@@ -96,13 +97,18 @@ export default function Dashboard({token}:Props) {
 
 
   return (
-    <div style={{ height: "100vh" }}>
-      <input
+    <div className="home" style={{ height: "100vh" }}>
+
+
+      <input className="searchbox"
         type="search"
-        placeholder="Search Songs/Artists"
+        placeholder="Search Songs"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       ></input>
+
+
+
 
       <div className="searchResults">
         {searchResults?.map((track) => (

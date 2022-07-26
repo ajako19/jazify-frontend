@@ -6,6 +6,7 @@ import Library from './components/Library';
 import Sidenav from './components/Sidenav';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link, NavLink } from "react-router-dom"
 import LikedSongs from './components/LikedSongs';
+import Bottomnav from './components/BottomNav';
 
 function App() {
   const CLIENT_ID = "38dab61be602496183a8e42aef0aa8d7"
@@ -64,11 +65,11 @@ function App() {
       {token ? <Router>
     <Routes>
     
-    <Route path='/home' element={<Library token={token}/>}></Route>
-    <Route path='/library' element={<LikedSongs/>}></Route>
+    <Route path='/' element={<Library token={token}/>}></Route>
     <Route path='/likedsongs' element={<LikedSongs/>}></Route>
   </Routes>
     <Sidenav/>
+    <Bottomnav/>
   </Router> : null}
     
 

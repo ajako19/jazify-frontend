@@ -1,9 +1,29 @@
 .SearchResult {
-    margin-top: 20px;
+    margin-top: 0px;
     margin-left: 20px;
     color: white;
     display: flex;
-    flex-direction: column;
+}
+
+.pageContentItem {
+    display: flex;
+    flex-direction: row;
+}
+
+.songinfo {
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: rgb(255, 255, 255);
+
+}
+
+.artist {
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #ffff;
+
 }
 
 .albumImg {
@@ -27,10 +47,10 @@ img {
     width: 60px;
 }
 
-@media only screen and (min-width: 595px)  {
+/* @media only screen and (min-width: 595px)  {
 
     .SearchResult {
         margin-left: 250px;
     }
     
-}
+} */
