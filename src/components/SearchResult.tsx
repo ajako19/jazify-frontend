@@ -21,11 +21,12 @@ export default function SearchResult({track, chooseTrack}: Props)  {
         // new song
       }
     })
+
+    function handlePlay() {
+      chooseTrack(track)
+    }
   }
-  
-  function handlePlay () {
-    chooseTrack(track)
-  }
+
 
   function handleFavorite () {
     return 

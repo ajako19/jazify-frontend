@@ -7,6 +7,9 @@ import "./Library.css"
 import { User } from "../models/User";
 import axios from "axios";
 import {BsXLg, BsSearch} from 'react-icons/bs' 
+import Player from "./Player";
+
+
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "38dab61be602496183a8e42aef0aa8d7",
@@ -22,6 +25,7 @@ export default function Dashboard({token}:Props) {
   const [searchResults, setSearchResults] = useState<Track[] | undefined>([]);
   const [playingTrack, setPlayingTrack] = useState<Track>()
   const [userData, setUserData] = useState<User>()
+  
   console.log(searchResults);
 
   function chooseTrack(track:Track) {
@@ -108,6 +112,9 @@ export default function Dashboard({token}:Props) {
       ></input>
 
 
+      
+
+
 
 
       <div className="searchResults">
@@ -116,6 +123,10 @@ export default function Dashboard({token}:Props) {
         ))}
       </div>
       {/* <MusicPlayer accessToken={accessToken} trackUri={playingTrack?.uri} /> */}
+      <Player token={token} trackUri={playingTrack?.uri}/>
+      
+
+      
     </div>
   );
 }

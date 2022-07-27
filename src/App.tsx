@@ -7,6 +7,9 @@ import Sidenav from './components/Sidenav';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link, NavLink } from "react-router-dom"
 import LikedSongs from './components/LikedSongs';
 import Bottomnav from './components/BottomNav';
+import Player from './components/Player';
+import SearchResult from './components/SearchResult';
+import CgLogIn, { CgBell } from 'react-icons/cg'
 
 function App() {
   const CLIENT_ID = "38dab61be602496183a8e42aef0aa8d7"
@@ -18,6 +21,7 @@ function App() {
   const [searchKey, setSearchKey] = useState("")
   const [artists, setArtists] = useState([])
   const [data, setData] = useState([])
+
 
   useEffect(() => {
     const hash = window.location.hash
@@ -68,21 +72,20 @@ function App() {
     <Route path='/' element={<Library token={token}/>}></Route>
     <Route path='/likedsongs' element={<LikedSongs/>}></Route>
   </Routes>
-    <Sidenav/>
     <Bottomnav/>
   </Router> : null}
-    
 
+  <div className='loginpage'>
       {!token ?
-      <a className='logintospotify' href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
-      to Spotify</a>
-      : <button className='logoutButton' onClick={logout}>Logout</button>}
+      <a className='logintosongify' href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>loginToSongify</a>
+      : <button className='logoutButton' onClick={logout}><CgBell/></button>}
       {token ? <form onSubmit={searchArtists}>
 
       </form> : <h1></h1>}
+  </div>
+    
     </div>
   );
 }
 
 export default App;
-

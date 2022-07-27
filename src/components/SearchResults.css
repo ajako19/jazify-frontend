@@ -1,13 +1,24 @@
+
+.SearchResults {
+    min-height: 723px;
+    transition: height 0.66s ease-out;
+}
+
+
 .SearchResult {
     margin-top: 0px;
     margin-left: 20px;
     color: white;
     display: flex;
+    max-height: auto;
 }
 
 .pageContentItem {
     display: flex;
     flex-direction: row;
+    vertical-align: top;
+    min-height: 82.6px;
+    max-height: 100px;
 }
 
 .songinfo {
