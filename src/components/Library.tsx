@@ -48,6 +48,7 @@ export default function Dashboard({token}:Props) {
     // searches tracks based on criteria
     spotifyApi.searchTracks(search).then((res) => {
       console.log(res)
+      console.log(token)
 
       // checks if tracks exist if not, empty array
       setSearchResults(
@@ -98,8 +99,9 @@ export default function Dashboard({token}:Props) {
   }, [search, accessToken]);
 
   // whenever the search of accessToken changes, run this
+  
 
-
+  
   return (
     <div className="home" style={{ height: "100vh" }}>
 
@@ -125,7 +127,6 @@ export default function Dashboard({token}:Props) {
       {/* <MusicPlayer accessToken={accessToken} trackUri={playingTrack?.uri} /> */}
       <Player token={token} trackUri={playingTrack?.uri}/>
       
-
       
     </div>
   );

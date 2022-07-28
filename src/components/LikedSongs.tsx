@@ -5,7 +5,6 @@ import "./LikedSongs.css"
 import SearchResult, { fetchAllLikedSongs } from './SearchResult'
 const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:5001/finalprojectjakobzach/us-central1/api";
 
-
 export function removeLikedSong(id:any) {
   return axios.delete(`${baseUrl}/likedSongsDelete/${id}`)
   .then(res => res.data);
@@ -14,12 +13,12 @@ export function removeLikedSong(id:any) {
 export default function LikedSongs() {
   const [data, setData] = useState<Track[]>([])
 
-
   useEffect(() => {
     fetchAllLikedSongs().then(res => {
       setData(res);
+      
     })
-  }, [])
+  }, [data])
 
   return (
     <div className='LikedSongs'>

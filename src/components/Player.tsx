@@ -7,13 +7,14 @@ import AiOutlineHome from 'react-icons/ai'
 export default function Player({token, trackUri}: any) {
     const [play, setPlay] = useState(false)
     const navigate = useNavigate();
-
-useEffect(() => setPlay(true), [trackUri])
+    
+    useEffect(() => setPlay(true), [trackUri])
 
     if (!token) return null
   return (
     <div>
-        <SpotifyPlayer
+
+        {/* <SpotifyPlayer
         token={token}
         showSaveIcon
         callback={state => {
@@ -21,7 +22,7 @@ useEffect(() => setPlay(true), [trackUri])
         }}
         play={play}
         uris={trackUri ? [trackUri] : []}
-        />
+        /> */}
 
 <div className="sn_container">
 
