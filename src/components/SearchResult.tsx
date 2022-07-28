@@ -2,35 +2,24 @@ import  Axios  from 'axios';
 import React from 'react'
 import { Track } from '../models/Track'
 import "./SearchResults.css"
+const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:5001/finalprojectjakobzach/us-central1/api";
+
 
 interface Props {
   track: Track;
   chooseTrack: (track:Track) => void;
 }
 
+export function fetchAllLikedSongs(): Promise<Track[]> {
+  return Axios.get<Track[]>(`${baseUrl}/likedSong`)
+      .then(res => res.data);
+}
+
+function handleLikedSongs (track:Track) {
+  Axios.post(`${baseUrl}/likedSongPost`, track).then((res) => res.data)
+}
 
 export default function SearchResult({track, chooseTrack}: Props)  { 
-  
-  function handleLikedSongs () {
-    Axios.post("http://localhost:3001/likedSong", {
-      userID: 1,
-      
-      newSong: {
-        ...track,
-        // goes over the object of track and pulls the keys into
-        // new song
-      }
-    })
-
-    function handlePlay() {
-      chooseTrack(track)
-    }
-  }
-
-
-  function handleFavorite () {
-    return 
-  }
   
   return (
     <div className='SearchResult'>
@@ -40,7 +29,7 @@ export default function SearchResult({track, chooseTrack}: Props)  {
       <div className='title'>{track.title}</div>
       <div className='artist'>{track.artist}</div>
     <div>
-      <i onClick={handleLikedSongs} className="fa-solid fa-heart"></i>
+      <i onClick={() => handleLikedSongs(track)} className="fa-solid fa-heart"></i>
     </div>
       </div>
     </div>
