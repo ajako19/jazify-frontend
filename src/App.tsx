@@ -6,10 +6,9 @@ import Library from './components/Library';
 import Sidenav from './components/Sidenav';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link, NavLink } from "react-router-dom"
 import LikedSongs from './components/LikedSongs';
-import Bottomnav from './components/BottomNav';
 import Player from './components/Player';
 import SearchResult from './components/SearchResult';
-import CgLogIn, { CgBell } from 'react-icons/cg'
+import {CgLogIn} from 'react-icons/cg'
 
 function App() {
   const CLIENT_ID = "38dab61be602496183a8e42aef0aa8d7"
@@ -72,13 +71,12 @@ function App() {
     <Route path='/' element={<Library token={token}/>}></Route>
     <Route path='/likedsongs' element={<LikedSongs/>}></Route>
   </Routes>
-    <Bottomnav/>
   </Router> : null}
 
   <div className='loginpage'>
       {!token ?
       <a className='logintosongify' href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>loginToSongify</a>
-      : <button className='logoutButton' onClick={logout}><CgBell/></button>}
+      : <button className='logoutButton' onClick={logout}><CgLogIn/></button>}
       {token ? <form onSubmit={searchArtists}>
 
       </form> : <h1></h1>}

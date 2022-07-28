@@ -10,7 +10,8 @@
     margin-left: 20px;
     color: white;
     display: flex;
-    max-height: auto;
+    background-color: #161616;
+
 }
 
 .pageContentItem {
@@ -30,6 +31,33 @@
 
 }
 
+.heart {
+    background-color: #161616;
+    width: auto;
+    font-size: 40px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: white;
+    transition: .3s;
+}
+
+.heart-red {
+    background-color: #161616;
+    width: auto;
+    font-size: 40px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: rgb(255, 105, 105);
+    transition: .3s;
+}
+
+
+
+.heart:hover {
+    color: rgb(255, 105, 105);
+}
+
+
 .artist {
     font-size: 14px;
     font-family: 'IBM Plex Mono', monospace;
@@ -37,21 +65,6 @@
 
 }
 
-.albumImg {
-    cursor: pointer;
-}
-
-.title {
-    cursor: pointer;
-}
-
-i {
-    transition: 0.25s;
-}
-
-i:hover {
-    color: red;
-}
 
 img {
     height: 60px;

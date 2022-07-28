@@ -6,7 +6,6 @@ import SearchResult from "./SearchResult";
 import "./Library.css"
 import { User } from "../models/User";
 import axios from "axios";
-import {BsXLg, BsSearch} from 'react-icons/bs' 
 import Player from "./Player";
 
 
@@ -108,7 +107,7 @@ export default function Dashboard({token}:Props) {
 
       <input className="searchbox"
         type="search"
-        placeholder="Search Songs"
+        placeholder="searchSongs"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       ></input>

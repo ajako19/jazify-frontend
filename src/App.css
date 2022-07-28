@@ -42,8 +42,16 @@ html {
 .logoutButton {
   margin-left: 500px;
   position: absolute;
-  bottom: 10px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   right: 10px;
+  background-color:#161616;
+  color: white;
+  width: 40px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .loginpage {

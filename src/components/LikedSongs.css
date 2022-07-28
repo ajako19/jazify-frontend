@@ -1,8 +1,21 @@
+.LikedSongs {
+    height: 70vh;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-transition: all 2s;
+    -moz-transition: all 2s;
+    -ms-transition: all 2s;
+    -o-transition: all 2s;
+    transition: all 2s;
+    vertical-align: top;
+}
+
 .likedSongsContainer {
     margin-left: 500px;
 }
 
-.heart {
-    color: red;
-}
 

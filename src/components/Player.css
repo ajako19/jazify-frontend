@@ -5,16 +5,28 @@ font-family: 'IBM Plex Mono', monospace;
 }
 
 
-.sn_container {
+.nav_container {
     background-color: #282828;
     color: white;
-    width: 70vw;
+    width: 100%;
     display: flex;
 justify-content: center;
 align-items: center;
 }
 
+.Nav {
+    background-color: #161616;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+}
 
 .NavButtons {
     color: white;
+    font-size: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 30px;
+    cursor: pointer;
 }

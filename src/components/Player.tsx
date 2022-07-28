@@ -2,7 +2,7 @@ import "./Player.css"
 import { useEffect, useState} from 'react'
 import SpotifyPlayer from 'react-spotify-web-playback'
 import { useNavigate } from "react-router-dom"
-import AiOutlineHome from 'react-icons/ai'
+import {AiOutlineHome, AiOutlineHeart} from 'react-icons/ai'
 
 export default function Player({token, trackUri}: any) {
     const [play, setPlay] = useState(false)
@@ -24,12 +24,11 @@ export default function Player({token, trackUri}: any) {
         uris={trackUri ? [trackUri] : []}
         /> */}
 
-<div className="sn_container">
+<div className="nav_container">
 
-<div className="Sidenav">
-<div className="NavButtons" onClick={() => {navigate("/")}}><i className="fa-light fa-house"></i></div>
-<div></div>
-<div className="NavButtons" onClick={() => {navigate("/likedsongs")}}>Liked Songs</div>
+<div className="Nav">
+<div className="NavButtons" onClick={() => {navigate("/")}}><AiOutlineHome/></div>
+<div className="NavButtons" onClick={() => {navigate("/likedsongs")}}><AiOutlineHeart/></div>
     {/* <a className="sideNavButtons" href="#">Library</a>
     <a className="sideNavButtons" href="#">Liked Songs</a> */}
 </div>
