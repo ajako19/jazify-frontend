@@ -1,7 +1,6 @@
-.LikedSongs {
+.likedSongs {
     height: 70vh;
     width: 100%;
-    margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,6 +12,11 @@
     transition: all 2s;
     vertical-align: top;
 }
+
+.searchResults {
+    margin-top: 50px;
+}
+
 
 .likedSongsContainer {
     margin-left: 500px;
